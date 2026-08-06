@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,9 +17,9 @@ export default function Footer() {
     {
       title: 'Resources',
       links: [
-        { name: 'GitHub', href: 'https://github.com' },
-        { name: 'LinkedIn', href: 'https://linkedin.com' },
-        { name: 'Twitter', href: 'https://twitter.com' },
+        { name: 'GitHub', href: 'https://github.com/WaseemAhmed376' },
+        { name: 'LinkedIn', href: 'https://www.linkedin.com/in/waseem-ahmed-376' },
+        { name: 'WhatsApp', href: 'https://wa.me/923247144941' },
         { name: 'Contact', href: '/contact' },
       ],
     },
@@ -32,7 +32,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-xl font-bold text-secondary mb-4">Portfolio</h3>
-            <p className="text-gray-400">
+            <p className="text-sand/60">
               Building beautiful, scalable web applications and automating workflows with n8n.
             </p>
           </div>
@@ -48,7 +48,7 @@ export default function Footer() {
                       href={link.href}
                       target={link.href.startsWith('http') ? '_blank' : undefined}
                       rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="text-gray-400 hover:text-secondary transition"
+                      className="text-sand/60 hover:text-secondary transition"
                     >
                       {link.name}
                     </Link>
@@ -64,39 +64,39 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-gray-400 text-sm">
-            © {currentYear} All rights reserved. Built with Next.js and Tailwind CSS.
+          <p className="text-sand/60 text-sm md:text-center w-full md:w-auto">
+            © {currentYear} Rana Waseem Ahmed. All rights reserved. Built with Next.js and Tailwind CSS.
           </p>
 
           {/* Social Icons */}
           <div className="flex gap-6">
             <a
-              href="https://github.com"
+              href="https://github.com/WaseemAhmed376"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-secondary transition text-xl"
+              className="text-sand/60 hover:text-secondary transition text-xl"
             >
               <FaGithub />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/waseem-ahmed-376"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-secondary transition text-xl"
+              className="text-sand/60 hover:text-secondary transition text-xl"
             >
               <FaLinkedin />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://wa.me/923247144941"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-secondary transition text-xl"
+              className="text-sand/60 hover:text-secondary transition text-xl"
             >
-              <FaTwitter />
+              <FaWhatsapp />
             </a>
             <a
-              href="mailto:hello@example.com"
-              className="text-gray-400 hover:text-secondary transition text-xl"
+              href="mailto:rw3761840@gmail.com"
+              className="text-sand/60 hover:text-secondary transition text-xl"
             >
               <FaEnvelope />
             </a>

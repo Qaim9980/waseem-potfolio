@@ -3,75 +3,54 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Portfolio() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch projects from API
+    // Fetch projects from API - limited to 4 projects
     fetch('/api/projects')
       .then((res) => res.json())
       .then((data) => {
-        setProjects(data);
+        setProjects(data.slice(0, 4)); // Only show 4 projects
         setLoading(false);
       })
       .catch(() => {
-        // Set default projects if API fails
+        // Set default projects if API fails - only 4
         setProjects([
           {
             id: 1,
-            title: 'E-Commerce Platform',
-            description: 'Full-stack e-commerce solution with payment integration and inventory management.',
-            image: 'https://via.placeholder.com/500x300?text=E-Commerce',
-            tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-            github: 'https://github.com',
-            live: 'https://example.com',
+            title: 'AI Customer Support Chatbot',
+            description: 'LLM-powered chatbot with RAG, built on GPT-4 + LangChain + FastAPI for automated customer support.',
+            image: '/proj-ai-chatbot.svg',
+            tags: ['Python', 'LangChain', 'OpenAI', 'RAG'],
+            slug: '1',
           },
           {
             id: 2,
-            title: 'Project Management App',
-            description: 'Collaborative project management tool with real-time updates and team features.',
-            image: 'https://via.placeholder.com/500x300?text=Project+Manager',
-            tags: ['Next.js', 'Firebase', 'Tailwind CSS'],
-            github: 'https://github.com',
-            live: 'https://example.com',
+            title: 'n8n E-commerce Automation',
+            description: 'End-to-end order automation — inventory sync, email alerts, Slack notifications via n8n workflows.',
+            image: '/proj-n8n-ecommerce.svg',
+            tags: ['n8n', 'Shopify', 'Google Sheets', 'Webhooks'],
+            slug: '2',
           },
           {
             id: 3,
-            title: 'n8n Automation Suite',
-            description: 'Advanced automation workflows for business process optimization and data sync.',
-            image: 'https://via.placeholder.com/500x300?text=n8n+Automation',
-            tags: ['n8n', 'Google Sheets', 'Slack', 'Webhooks'],
-            github: 'https://github.com',
-            live: 'https://example.com',
+            title: 'RAG Document Q&A System',
+            description: 'Upload PDFs and get AI-powered answers using ChromaDB vector search and OpenAI embeddings.',
+            image: '/proj-rag-system.svg',
+            tags: ['LangChain', 'ChromaDB', 'OpenAI', 'Streamlit'],
+            slug: '3',
           },
           {
             id: 4,
-            title: 'Analytics Dashboard',
-            description: 'Real-time data visualization dashboard with interactive charts and reports.',
-            image: 'https://via.placeholder.com/500x300?text=Analytics',
-            tags: ['React', 'Chart.js', 'PostgreSQL', 'Express'],
-            github: 'https://github.com',
-            live: 'https://example.com',
-          },
-          {
-            id: 5,
-            title: 'Mobile App',
-            description: 'Cross-platform mobile application for task management and productivity.',
-            image: 'https://via.placeholder.com/500x300?text=Mobile+App',
-            tags: ['React Native', 'Firebase', 'Redux'],
-            github: 'https://github.com',
-            live: 'https://example.com',
-          },
-          {
-            id: 6,
-            title: 'API Integration Service',
-            description: 'Microservice for integrating multiple third-party APIs with caching and monitoring.',
-            image: 'https://via.placeholder.com/500x300?text=API+Service',
-            tags: ['Node.js', 'Express', 'Redis', 'Docker'],
-            github: 'https://github.com',
-            live: 'https://example.com',
+            title: 'E-commerce Price Monitor',
+            description: 'Scrapes prices across Amazon & eBay, detects drops, and sends instant alerts via email and Telegram.',
+            image: '/proj-price-monitor.svg',
+            tags: ['Python', 'Scrapy', 'n8n', 'PostgreSQL'],
+            slug: '4',
           },
         ]);
         setLoading(false);
@@ -86,7 +65,7 @@ export default function Portfolio() {
       </Head>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-dark to-primary/20 py-20 px-4 pt-32">
+      <section className="bg-gradient-to-br from-ink via-charcoal to-dark py-20 px-4 pt-32">
         <motion.div
           className="max-w-4xl mx-auto text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -94,7 +73,7 @@ export default function Portfolio() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-5xl font-bold text-white mb-6">My Portfolio</h1>
-          <p className="text-xl text-gray-300">Showcase of projects built with modern technologies and best practices</p>
+          <p className="text-xl text-sand/80">Showcase of projects built with modern technologies and best practices</p>
         </motion.div>
       </section>
 
@@ -102,63 +81,49 @@ export default function Portfolio() {
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           {loading ? (
-            <div className="text-center text-gray-300">Loading projects...</div>
+            <div className="text-center text-sand/80">Loading projects...</div>
           ) : (
             <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
               {projects.map((project, idx) => (
-                <motion.div
-                  key={project.id}
-                  className="bg-primary/10 rounded-lg overflow-hidden hover:shadow-lg transition group"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  whileHover={{ y: -5 }}
-                >
-                  <div className="relative h-48 overflow-hidden bg-gray-800">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                    <p className="text-gray-300 mb-4 text-sm">{project.description}</p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tags.map((tag, i) => (
-                        <span key={i} className="bg-secondary/20 text-secondary px-2 py-1 rounded text-xs">
-                          {tag}
-                        </span>
-                      ))}
+                <Link key={project.id} href={`/portfolio/${project.slug || project.id}`}>
+                  <motion.div
+                    className="bg-primary/10 rounded-lg overflow-hidden hover:shadow-lg transition group hover-lift cursor-pointer"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                  >
+                    <div className="relative h-48 overflow-hidden bg-ink/60">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition"
+                      />
                     </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
+                      <p className="text-sand/80 mb-4 text-sm">{project.description}</p>
+                      
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.tags.map((tag, i) => (
+                          <span key={i} className="bg-secondary/20 text-secondary px-2 py-1 rounded text-xs">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
 
-                    <div className="flex gap-4">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-secondary hover:text-blue-400 transition"
-                      >
-                        <FaGithub /> Code
-                      </a>
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-secondary hover:text-blue-400 transition"
-                      >
-                        <FaExternalLinkAlt /> Live
-                      </a>
+                      <div className="text-secondary hover:text-secondary/90 transition font-semibold">
+                        View Details →
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </Link>
               ))}
             </motion.div>
           )}

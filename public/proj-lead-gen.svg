@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="500" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="300" fill="url(#bg)" rx="12"/>
+  <rect width="500" height="40" fill="#1c2128" rx="12"/>
+  <rect y="28" width="500" height="12" fill="#1c2128"/>
+  <circle cx="20" cy="20" r="6" fill="#ff5f57"/>
+  <circle cx="38" cy="20" r="6" fill="#febc2e"/>
+  <circle cx="56" cy="20" r="6" fill="#28c840"/>
+  <text x="250" y="25" text-anchor="middle" font-size="12" fill="#8b949e" font-family="monospace">n8n · B2B Lead Gen Pipeline · Active</text>
+
+  <!-- n8n canvas dots -->
+  <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+    <circle cx="10" cy="10" r="0.8" fill="#21262d"/>
+  </pattern>
+  <rect x="0" y="40" width="500" height="220" fill="url(#dots)"/>
+
+  <!-- Node 1: LinkedIn Scraper -->
+  <rect x="14" y="80" width="88" height="52" rx="8" fill="#1f2937" stroke="#ca9f6a" stroke-width="1.5"/>
+  <rect x="14" y="80" width="88" height="18" rx="8" fill="#ca9f6a" opacity="0.15"/>
+  <rect x="14" y="90" width="88" height="8" fill="#ca9f6a" opacity="0.15"/>
+  <text x="58" y="92" text-anchor="middle" font-size="7" fill="#ca9f6a" font-family="monospace" font-weight="bold">LINKEDIN</text>
+  <text x="58" y="106" text-anchor="middle" font-size="8" fill="#f0f6fc" font-family="monospace">Scrape Leads</text>
+  <text x="58" y="120" text-anchor="middle" font-size="7" fill="#8b949e" font-family="monospace">50 leads/run</text>
+  <circle cx="102" cy="106" r="5" fill="#ca9f6a"/>
+
+  <!-- Arrow -->
+  <line x1="107" y1="106" x2="125" y2="106" stroke="#ca9f6a" stroke-width="1.5"/>
+  <polygon points="122,102 129,106 122,110" fill="#ca9f6a"/>
+
+  <!-- Node 2: OpenAI Enrich -->
+  <rect x="129" y="80" width="88" height="52" rx="8" fill="#1f2937" stroke="#e07b39" stroke-width="1.5"/>
+  <rect x="129" y="80" width="88" height="18" rx="8" fill="#e07b39" opacity="0.15"/>
+  <rect x="129" y="90" width="88" height="8" fill="#e07b39" opacity="0.15"/>
+  <text x="173" y="92" text-anchor="middle" font-size="7" fill="#e07b39" font-family="monospace" font-weight="bold">OPENAI</text>
+  <text x="173" y="106" text-anchor="middle" font-size="8" fill="#f0f6fc" font-family="monospace">Enrich + Score</text>
+  <text x="173" y="120" text-anchor="middle" font-size="7" fill="#8b949e" font-family="monospace">ICP: 0-100</text>
+  <circle cx="129" cy="106" r="5" fill="#e07b39"/>
+  <circle cx="217" cy="106" r="5" fill="#e07b39"/>
+
+  <!-- Arrow -->
+  <line x1="222" y1="106" x2="240" y2="106" stroke="#e07b39" stroke-width="1.5"/>
+  <polygon points="237,102 244,106 237,110" fill="#e07b39"/>
+
+  <!-- Node 3: IF Score -->
+  <rect x="244" y="80" width="72" height="52" rx="8" fill="#1f2937" stroke="#febc2e" stroke-width="1.5"/>
+  <text x="280" y="95" text-anchor="middle" font-size="7" fill="#febc2e" font-family="monospace" font-weight="bold">IF</text>
+  <text x="280" y="108" text-anchor="middle" font-size="8" fill="#f0f6fc" font-family="monospace">Score &gt; 70?</text>
+  <text x="280" y="120" text-anchor="middle" font-size="7" fill="#8b949e" font-family="monospace">qualify lead</text>
+  <circle cx="316" cy="97" r="4" fill="#28c840"/>
+  <circle cx="316" cy="115" r="4" fill="#ff5f57"/>
+
+  <!-- True branch up -->
+  <line x1="320" y1="97" x2="345" y2="97" stroke="#28c840" stroke-width="1.5"/>
+  <polygon points="342,93 349,97 342,101" fill="#28c840"/>
+
+  <!-- False branch -->
+  <line x1="320" y1="115" x2="345" y2="115" stroke="#ff5f57" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="325" y="128" font-size="7" fill="#ff5f57" font-family="monospace">skip</text>
+
+  <!-- Node 4: HubSpot -->
+  <rect x="349" y="70" width="80" height="52" rx="8" fill="#1f2937" stroke="#28c840" stroke-width="1.5"/>
+  <rect x="349" y="70" width="80" height="18" rx="8" fill="#28c840" opacity="0.1"/>
+  <rect x="349" y="82" width="80" height="8" fill="#28c840" opacity="0.1"/>
+  <text x="389" y="82" text-anchor="middle" font-size="7" fill="#28c840" font-family="monospace" font-weight="bold">HUBSPOT</text>
+  <text x="389" y="96" text-anchor="middle" font-size="8" fill="#f0f6fc" font-family="monospace">Create Contact</text>
+  <text x="389" y="110" text-anchor="middle" font-size="7" fill="#8b949e" font-family="monospace">CRM entry</text>
+  <circle cx="349" cy="96" r="5" fill="#28c840"/>
+  <circle cx="429" cy="96" r="5" fill="#28c840"/>
+
+  <!-- Arrow down to Gmail -->
+  <line x1="389" y1="122" x2="389" y2="145" stroke="#28c840" stroke-width="1.5"/>
+  <polygon points="385,143 389,150 393,143" fill="#28c840"/>
+
+  <!-- Node 5: Gmail sequence -->
+  <rect x="349" y="150" width="80" height="52" rx="8" fill="#1f2937" stroke="#ca9f6a" stroke-width="1.5"/>
+  <rect x="349" y="150" width="80" height="18" rx="8" fill="#ca9f6a" opacity="0.1"/>
+  <rect x="349" y="162" width="80" height="8" fill="#ca9f6a" opacity="0.1"/>
+  <text x="389" y="162" text-anchor="middle" font-size="7" fill="#ca9f6a" font-family="monospace" font-weight="bold">GMAIL</text>
+  <text x="389" y="176" text-anchor="middle" font-size="8" fill="#f0f6fc" font-family="monospace">Email Seq #1</text>
+  <text x="389" y="190" text-anchor="middle" font-size="7" fill="#8b949e" font-family="monospace">personalized</text>
+
+  <!-- Node 6: Google Sheets log -->
+  <rect x="14" y="175" width="88" height="40" rx="8" fill="#1f2937" stroke="#7b8a5a" stroke-width="1"/>
+  <text x="58" y="191" text-anchor="middle" font-size="7" fill="#7b8a5a" font-family="monospace" font-weight="bold">SHEETS LOG</text>
+  <text x="58" y="207" text-anchor="middle" font-size="8" fill="#f0f6fc" font-family="monospace">Append Row</text>
+
+  <!-- Node 7: Slack alert -->
+  <rect x="129" y="175" width="88" height="40" rx="8" fill="#1f2937" stroke="#7b8a5a" stroke-width="1"/>
+  <text x="173" y="191" text-anchor="middle" font-size="7" fill="#7b8a5a" font-family="monospace" font-weight="bold">SLACK</text>
+  <text x="173" y="207" text-anchor="middle" font-size="8" fill="#f0f6fc" font-family="monospace">Hot Lead Alert</text>
+
+  <!-- Enriched lead card -->
+  <rect x="14" y="230" width="316" height="52" rx="8" fill="#1c2128" stroke="#e07b39" stroke-width="1"/>
+  <text x="26" y="245" font-size="8" fill="#e07b39" font-family="monospace">AI Enriched Lead</text>
+  <text x="26" y="258" font-size="7" fill="#f0f6fc" font-family="monospace">TechCorp Inc · CEO · ICP Score: 87/100</text>
+  <text x="26" y="270" font-size="7" fill="#8b949e" font-family="monospace">Pain: manual reporting, no automation, scaling issues</text>
+  <rect x="248" y="237" width="72" height="18" rx="4" fill="#28c840" opacity="0.15" stroke="#28c840" stroke-width="0.8"/>
+  <text x="284" y="249" text-anchor="middle" font-size="8" fill="#28c840" font-family="monospace">✓ Qualified</text>
+
+  <!-- Stats -->
+  <rect x="340" y="230" width="152" height="52" rx="8" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="354" y="246" font-size="8" fill="#8b949e" font-family="monospace">Today's stats</text>
+  <text x="354" y="260" font-size="8" fill="#ca9f6a" font-family="monospace">Scraped: 50</text>
+  <text x="354" y="272" font-size="8" fill="#28c840" font-family="monospace">Qualified: 23 · Email open: 38%</text>
+</svg>

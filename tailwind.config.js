@@ -7,13 +7,21 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#0066cc',
-        secondary: '#00d4ff',
-        dark: '#1a1a1a',
-        light: '#f5f5f5',
+        primary: '#caa06a',
+        secondary: '#b85c3a',
+        dark: '#14110f',
+        light: '#f5efe6',
+        ink: '#14110f',
+        charcoal: '#1c1713',
+        sand: '#f5efe6',
+        clay: '#caa06a',
+        copper: '#b85c3a',
+        olive: '#7b8a5a',
+        stone: '#b9afa3',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Manrope', 'sans-serif'],
+        display: ['DM Serif Display', 'serif'],
       },
     },
   },

@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="500" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="300" fill="url(#bg)" rx="12"/>
+  <rect width="500" height="40" fill="#1c2128" rx="12"/>
+  <rect y="28" width="500" height="12" fill="#1c2128"/>
+  <circle cx="20" cy="20" r="6" fill="#ff5f57"/>
+  <circle cx="38" cy="20" r="6" fill="#febc2e"/>
+  <circle cx="56" cy="20" r="6" fill="#28c840"/>
+  <text x="250" y="25" text-anchor="middle" font-size="12" fill="#8b949e" font-family="monospace">ORION-RAG · Hybrid Retrieval Pipeline</text>
+
+  <!-- Architecture flow -->
+  <!-- Stage labels -->
+  <text x="40" y="58" text-anchor="middle" font-size="8" fill="#8b949e" font-family="monospace">INGEST</text>
+  <text x="155" y="58" text-anchor="middle" font-size="8" fill="#8b949e" font-family="monospace">RETRIEVE</text>
+  <text x="285" y="58" text-anchor="middle" font-size="8" fill="#8b949e" font-family="monospace">RERANK</text>
+  <text x="390" y="58" text-anchor="middle" font-size="8" fill="#8b949e" font-family="monospace">GENERATE</text>
+
+  <!-- Ingest block -->
+  <rect x="8" y="65" width="66" height="130" rx="6" fill="#1f2937" stroke="#ca9f6a" stroke-width="1"/>
+  <text x="41" y="82" text-anchor="middle" font-size="8" fill="#ca9f6a" font-family="monospace">Ray</text>
+  <rect x="16" y="88" width="50" height="16" rx="3" fill="#ca9f6a" opacity="0.15" stroke="#ca9f6a" stroke-width="0.5"/>
+  <text x="41" y="99" text-anchor="middle" font-size="7" fill="#ca9f6a" font-family="monospace">PDF Chunk</text>
+  <rect x="16" y="110" width="50" height="16" rx="3" fill="#ca9f6a" opacity="0.15" stroke="#ca9f6a" stroke-width="0.5"/>
+  <text x="41" y="121" text-anchor="middle" font-size="7" fill="#ca9f6a" font-family="monospace">Dense Embed</text>
+  <rect x="16" y="132" width="50" height="16" rx="3" fill="#ca9f6a" opacity="0.15" stroke="#ca9f6a" stroke-width="0.5"/>
+  <text x="41" y="143" text-anchor="middle" font-size="7" fill="#ca9f6a" font-family="monospace">Sparse BM25</text>
+  <rect x="16" y="154" width="50" height="16" rx="3" fill="#7b8a5a" opacity="0.2" stroke="#7b8a5a" stroke-width="0.5"/>
+  <text x="41" y="165" text-anchor="middle" font-size="7" fill="#7b8a5a" font-family="monospace">Qdrant Index</text>
+  <text x="41" y="185" text-anchor="middle" font-size="7" fill="#8b949e" font-family="monospace">50k docs/day</text>
+
+  <!-- Arrow -->
+  <line x1="74" y1="130" x2="90" y2="130" stroke="#ca9f6a" stroke-width="1.5"/>
+  <polygon points="87,126 94,130 87,134" fill="#ca9f6a"/>
+
+  <!-- Retrieve block -->
+  <rect x="94" y="65" width="122" height="130" rx="6" fill="#1f2937" stroke="#e07b39" stroke-width="1"/>
+  <text x="155" y="82" text-anchor="middle" font-size="8" fill="#e07b39" font-family="monospace">Hybrid Search</text>
+  <!-- Dense box -->
+  <rect x="100" y="88" width="52" height="40" rx="4" fill="#e07b39" opacity="0.1" stroke="#e07b39" stroke-width="0.8"/>
+  <text x="126" y="103" text-anchor="middle" font-size="7" fill="#e07b39" font-family="monospace">Dense</text>
+  <text x="126" y="114" text-anchor="middle" font-size="7" fill="#8b949e" font-family="monospace">Qdrant</text>
+  <!-- Sparse box -->
+  <rect x="158" y="88" width="52" height="40" rx="4" fill="#7b8a5a" opacity="0.15" stroke="#7b8a5a" stroke-width="0.8"/>
+  <text x="184" y="103" text-anchor="middle" font-size="7" fill="#7b8a5a" font-family="monospace">Sparse</text>
+  <text x="184" y="114" text-anchor="middle" font-size="7" fill="#8b949e" font-family="monospace">BM25</text>
+  <!-- RRF fusion -->
+  <line x1="126" y1="128" x2="155" y2="142" stroke="#ca9f6a" stroke-width="1"/>
+  <line x1="184" y1="128" x2="155" y2="142" stroke="#ca9f6a" stroke-width="1"/>
+  <rect x="125" y="142" width="60" height="22" rx="4" fill="#ca9f6a" opacity="0.15" stroke="#ca9f6a" stroke-width="0.8"/>
+  <text x="155" y="157" text-anchor="middle" font-size="7" fill="#ca9f6a" font-family="monospace">RRF Fusion</text>
+  <text x="155" y="185" text-anchor="middle" font-size="7" fill="#8b949e" font-family="monospace">top-20 merged</text>
+
+  <!-- Arrow -->
+  <line x1="216" y1="130" x2="232" y2="130" stroke="#e07b39" stroke-width="1.5"/>
+  <polygon points="229,126 236,130 229,134" fill="#e07b39"/>
+
+  <!-- Rerank block -->
+  <rect x="236" y="65" width="100" height="130" rx="6" fill="#1f2937" stroke="#7b8a5a" stroke-width="1"/>
+  <text x="286" y="82" text-anchor="middle" font-size="8" fill="#7b8a5a" font-family="monospace">Cross-Encoder</text>
+  <rect x="244" y="90" width="84" height="14" rx="3" fill="#7b8a5a" opacity="0.3"/>
+  <text x="286" y="100" text-anchor="middle" font-size="7" fill="#f0f6fc" font-family="monospace">chunk #3 · 0.97</text>
+  <rect x="244" y="108" width="84" height="14" rx="3" fill="#7b8a5a" opacity="0.2"/>
+  <text x="286" y="118" text-anchor="middle" font-size="7" fill="#f0f6fc" font-family="monospace">chunk #1 · 0.91</text>
+  <rect x="244" y="126" width="84" height="14" rx="3" fill="#7b8a5a" opacity="0.1"/>
+  <text x="286" y="136" text-anchor="middle" font-size="7" fill="#8b949e" font-family="monospace">chunk #7 · 0.74</text>
+  <rect x="244" y="144" width="84" height="14" rx="3" fill="#7b8a5a" opacity="0.05"/>
+  <text x="286" y="154" text-anchor="middle" font-size="7" fill="#8b949e" font-family="monospace">chunk #2 · 0.61 ✗</text>
+  <text x="286" y="185" text-anchor="middle" font-size="7" fill="#8b949e" font-family="monospace">top-3 selected</text>
+
+  <!-- Arrow -->
+  <line x1="336" y1="130" x2="352" y2="130" stroke="#7b8a5a" stroke-width="1.5"/>
+  <polygon points="349,126 356,130 349,134" fill="#7b8a5a"/>
+
+  <!-- Generate block -->
+  <rect x="356" y="65" width="136" height="130" rx="6" fill="#1f2937" stroke="#e07b39" stroke-width="1"/>
+  <text x="424" y="82" text-anchor="middle" font-size="8" fill="#e07b39" font-family="monospace">GPT-4o</text>
+  <rect x="364" y="88" width="120" height="52" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="0.8"/>
+  <text x="374" y="101" font-size="7" fill="#8b949e" font-family="monospace">Answer:</text>
+  <text x="374" y="113" font-size="7" fill="#f0f6fc" font-family="monospace">The policy states [1]</text>
+  <text x="374" y="125" font-size="7" fill="#f0f6fc" font-family="monospace">that users must... [2]</text>
+  <text x="374" y="137" font-size="7" fill="#ca9f6a" font-family="monospace">[1][2] cited chunks</text>
+  <rect x="364" y="148" width="56" height="14" rx="3" fill="#28c840" opacity="0.15" stroke="#28c840" stroke-width="0.8"/>
+  <text x="392" y="158" text-anchor="middle" font-size="7" fill="#28c840" font-family="monospace">faith: 0.96</text>
+  <rect x="426" y="148" width="56" height="14" rx="3" fill="#28c840" opacity="0.15" stroke="#28c840" stroke-width="0.8"/>
+  <text x="454" y="158" text-anchor="middle" font-size="7" fill="#28c840" font-family="monospace">grnd: 0.93</text>
+  <text x="424" y="185" text-anchor="middle" font-size="7" fill="#8b949e" font-family="monospace">P95: 120ms</text>
+
+  <!-- Eval + metrics bottom -->
+  <rect x="8" y="208" width="484" height="52" rx="8" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="24" y="223" font-size="9" fill="#8b949e" font-family="monospace">Async Eval Harness</text>
+  <rect x="24" y="228" width="90" height="24" rx="4" fill="#0d1117" stroke="#e07b39" stroke-width="0.8"/>
+  <text x="69" y="238" text-anchor="middle" font-size="8" fill="#e07b39" font-family="monospace">Hallucination</text>
+  <text x="69" y="248" text-anchor="middle" font-size="9" fill="#f0f6fc" font-family="monospace">↓ 63%</text>
+  <rect x="124" y="228" width="90" height="24" rx="4" fill="#0d1117" stroke="#28c840" stroke-width="0.8"/>
+  <text x="169" y="238" text-anchor="middle" font-size="8" fill="#28c840" font-family="monospace">P95 Latency</text>
+  <text x="169" y="248" text-anchor="middle" font-size="9" fill="#f0f6fc" font-family="monospace">120ms</text>
+  <rect x="224" y="228" width="90" height="24" rx="4" fill="#0d1117" stroke="#ca9f6a" stroke-width="0.8"/>
+  <text x="269" y="238" text-anchor="middle" font-size="8" fill="#ca9f6a" font-family="monospace">NPS Score</text>
+  <text x="269" y="248" text-anchor="middle" font-size="9" fill="#f0f6fc" font-family="monospace">4.1 ★</text>
+  <rect x="324" y="228" width="90" height="24" rx="4" fill="#0d1117" stroke="#7b8a5a" stroke-width="0.8"/>
+  <text x="369" y="238" text-anchor="middle" font-size="8" fill="#7b8a5a" font-family="monospace">Docs/Day</text>
+  <text x="369" y="248" text-anchor="middle" font-size="9" fill="#f0f6fc" font-family="monospace">50k</text>
+  <rect x="424" y="228" width="60" height="24" rx="4" fill="#28c840" opacity="0.1" stroke="#28c840" stroke-width="0.8"/>
+  <text x="454" y="244" text-anchor="middle" font-size="9" fill="#28c840" font-family="monospace">● Live</text>
+
+  <!-- Bottom padding -->
+  <rect x="0" y="268" width="500" height="32" fill="#161b22" rx="0"/>
+  <text x="250" y="286" text-anchor="middle" font-size="9" fill="#8b949e" font-family="monospace">Grafana · per-tenant dashboards · circuit breakers active</text>
+</svg>

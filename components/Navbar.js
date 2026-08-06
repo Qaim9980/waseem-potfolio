@@ -12,7 +12,7 @@ export default function Navbar() {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Portfolio', href: '/portfolio' },
-    { name: 'Blog', href: '/blog' },
+    // { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -27,7 +27,7 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-secondary hover:text-blue-400 transition">
+        <Link href="/" className="text-2xl font-bold text-secondary hover:text-secondary/90 transition">
           Portfolio
         </Link>
 
@@ -40,7 +40,7 @@ export default function Navbar() {
               className={`transition ${
                 isActive(item.href)
                   ? 'text-secondary border-b-2 border-secondary'
-                  : 'text-gray-300 hover:text-secondary'
+                  : 'text-sand/80 hover:text-secondary'
               }`}
             >
               {item.name}
@@ -73,7 +73,7 @@ export default function Navbar() {
                 className={`transition ${
                   isActive(item.href)
                     ? 'text-secondary'
-                    : 'text-gray-300 hover:text-secondary'
+                    : 'text-sand/80 hover:text-secondary'
                 }`}
                 onClick={() => setIsOpen(false)}
               >

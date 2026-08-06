@@ -46,7 +46,7 @@ export default async function handler(req, res) {
           <p><strong>Your Message:</strong></p>
           <p>${message.replace(/\n/g, '<br>')}</p>
           <br>
-          <p>Best regards,<br>Your Name</p>
+          <p>Best regards,<br>Waseem Ahmed</p>
         `,
       });
 

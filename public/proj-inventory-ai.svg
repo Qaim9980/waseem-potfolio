@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="500" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="300" fill="url(#bg)" rx="12"/>
+  <rect width="500" height="40" fill="#1c2128" rx="12"/>
+  <rect y="28" width="500" height="12" fill="#1c2128"/>
+  <circle cx="20" cy="20" r="6" fill="#ff5f57"/>
+  <circle cx="38" cy="20" r="6" fill="#febc2e"/>
+  <circle cx="56" cy="20" r="6" fill="#28c840"/>
+  <text x="250" y="25" text-anchor="middle" font-size="12" fill="#8b949e" font-family="monospace">AI Inventory · Forecast Dashboard</text>
+
+  <!-- Left: SKU table -->
+  <rect x="8" y="48" width="175" height="210" rx="8" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="95" y="64" text-anchor="middle" font-size="9" fill="#8b949e" font-family="monospace">SKU FORECAST</text>
+  <!-- Header -->
+  <rect x="14" y="68" width="163" height="16" rx="3" fill="#0d1117"/>
+  <text x="36" y="79" font-size="7" fill="#8b949e" font-family="monospace">SKU</text>
+  <text x="90" y="79" font-size="7" fill="#8b949e" font-family="monospace">Stock</text>
+  <text x="123" y="79" font-size="7" fill="#8b949e" font-family="monospace">Days</text>
+  <text x="153" y="79" font-size="7" fill="#8b949e" font-family="monospace">Alert</text>
+
+  <!-- Row 1 critical -->
+  <rect x="14" y="87" width="163" height="20" rx="3" fill="#e07b39" opacity="0.08" stroke="#e07b39" stroke-width="0.5"/>
+  <text x="22" y="100" font-size="7" fill="#f0f6fc" font-family="monospace">SKU-001</text>
+  <text x="90" y="100" font-size="7" fill="#e07b39" font-family="monospace">12</text>
+  <text x="123" y="100" font-size="7" fill="#e07b39" font-family="monospace">3d</text>
+  <circle cx="163" cy="97" r="4" fill="#e07b39"/>
+
+  <rect x="14" y="110" width="163" height="20" rx="3" fill="#febc2e" opacity="0.05" stroke="#febc2e" stroke-width="0.5"/>
+  <text x="22" y="123" font-size="7" fill="#f0f6fc" font-family="monospace">SKU-002</text>
+  <text x="90" y="123" font-size="7" fill="#febc2e" font-family="monospace">48</text>
+  <text x="123" y="123" font-size="7" fill="#febc2e" font-family="monospace">8d</text>
+  <circle cx="163" cy="120" r="4" fill="#febc2e"/>
+
+  <rect x="14" y="133" width="163" height="20" rx="3" fill="#0d1117"/>
+  <text x="22" y="146" font-size="7" fill="#f0f6fc" font-family="monospace">SKU-003</text>
+  <text x="90" y="146" font-size="7" fill="#28c840" font-family="monospace">210</text>
+  <text x="123" y="146" font-size="7" fill="#28c840" font-family="monospace">42d</text>
+  <circle cx="163" cy="143" r="4" fill="#28c840"/>
+
+  <rect x="14" y="156" width="163" height="20" rx="3" fill="#0d1117"/>
+  <text x="22" y="169" font-size="7" fill="#f0f6fc" font-family="monospace">SKU-004</text>
+  <text x="90" y="169" font-size="7" fill="#28c840" font-family="monospace">155</text>
+  <text x="123" y="169" font-size="7" fill="#28c840" font-family="monospace">31d</text>
+  <circle cx="163" cy="166" r="4" fill="#28c840"/>
+
+  <rect x="14" y="179" width="163" height="20" rx="3" fill="#e07b39" opacity="0.08" stroke="#e07b39" stroke-width="0.5"/>
+  <text x="22" y="192" font-size="7" fill="#f0f6fc" font-family="monospace">SKU-005</text>
+  <text x="90" y="192" font-size="7" fill="#e07b39" font-family="monospace">8</text>
+  <text x="123" y="192" font-size="7" fill="#e07b39" font-family="monospace">2d</text>
+  <circle cx="163" cy="189" r="4" fill="#e07b39"/>
+
+  <!-- Accuracy badge -->
+  <rect x="14" y="216" width="163" height="30" rx="4" fill="#0d1117" stroke="#ca9f6a" stroke-width="0.8"/>
+  <text x="96" y="229" text-anchor="middle" font-size="8" fill="#ca9f6a" font-family="monospace">Model Accuracy</text>
+  <text x="96" y="241" text-anchor="middle" font-size="10" fill="#f0f6fc" font-family="monospace" font-weight="bold">91% @ 30d horizon</text>
+
+  <!-- Right: Forecast chart -->
+  <rect x="191" y="48" width="301" height="130" rx="8" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="341" y="64" text-anchor="middle" font-size="9" fill="#8b949e" font-family="monospace">SKU-001 · Demand Forecast</text>
+
+  <!-- Chart area -->
+  <line x1="210" y1="70" x2="210" y2="160" stroke="#30363d" stroke-width="1"/>
+  <line x1="210" y1="160" x2="480" y2="160" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Y labels -->
+  <text x="206" y="80" text-anchor="end" font-size="7" fill="#8b949e" font-family="monospace">50</text>
+  <text x="206" y="107" text-anchor="end" font-size="7" fill="#8b949e" font-family="monospace">30</text>
+  <text x="206" y="134" text-anchor="end" font-size="7" fill="#8b949e" font-family="monospace">10</text>
+
+  <!-- Actual line (solid) -->
+  <polyline points="215,140 235,125 255,132 275,110 295,118 315,105 335,115"
+    fill="none" stroke="#ca9f6a" stroke-width="2"/>
+
+  <!-- Forecast line (dashed) -->
+  <polyline points="335,115 355,100 375,88 395,92 415,80 435,85 460,78"
+    fill="none" stroke="#e07b39" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- Confidence band -->
+  <polyline points="335,115 355,90 375,76 395,80 415,66 435,72 460,64"
+    fill="none" stroke="#e07b39" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.4"/>
+  <polyline points="335,115 355,110 375,100 395,104 415,94 435,98 460,92"
+    fill="none" stroke="#e07b39" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.4"/>
+
+  <!-- Reorder line -->
+  <line x1="210" y1="148" x2="480" y2="148" stroke="#e07b39" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="215" y="146" font-size="6" fill="#e07b39" font-family="monospace">reorder point</text>
+
+  <!-- Today marker -->
+  <line x1="335" y1="70" x2="335" y2="160" stroke="#f0f6fc" stroke-width="0.8" stroke-dasharray="2,2" opacity="0.3"/>
+  <text x="333" y="68" font-size="6" fill="#8b949e" font-family="monospace">today</text>
+
+  <!-- Legend -->
+  <line x1="350" y1="170" x2="370" y2="170" stroke="#ca9f6a" stroke-width="2"/>
+  <text x="375" y="174" font-size="7" fill="#ca9f6a" font-family="monospace">Actual</text>
+  <line x1="415" y1="170" x2="435" y2="170" stroke="#e07b39" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="440" y="174" font-size="7" fill="#e07b39" font-family="monospace">Forecast</text>
+
+  <!-- Auto reorder card -->
+  <rect x="191" y="186" width="145" height="72" rx="8" fill="#1c2128" stroke="#e07b39" stroke-width="1"/>
+  <text x="202" y="201" font-size="8" fill="#e07b39" font-family="monospace">🤖 Auto-Reorder</text>
+  <text x="202" y="214" font-size="7" fill="#f0f6fc" font-family="monospace">SKU-001 → 200 units</text>
+  <text x="202" y="226" font-size="7" fill="#8b949e" font-family="monospace">WooCommerce API ✓</text>
+  <text x="202" y="238" font-size="7" fill="#8b949e" font-family="monospace">Supplier email sent ✓</text>
+  <text x="202" y="250" font-size="7" fill="#28c840" font-family="monospace">n8n triggered · 06:00</text>
+
+  <!-- Model card -->
+  <rect x="344" y="186" width="148" height="72" rx="8" fill="#1c2128" stroke="#ca9f6a" stroke-width="1"/>
+  <text x="355" y="201" font-size="8" fill="#ca9f6a" font-family="monospace">Model Stack</text>
+  <text x="355" y="214" font-size="7" fill="#f0f6fc" font-family="monospace">LSTM · seasonal patterns</text>
+  <text x="355" y="226" font-size="7" fill="#f0f6fc" font-family="monospace">XGBoost · short-term</text>
+  <text x="355" y="238" font-size="7" fill="#8b949e" font-family="monospace">Stacking ensemble</text>
+  <text x="355" y="250" font-size="7" fill="#28c840" font-family="monospace">Stockouts ↓ 82%</text>
+
+  <!-- Bottom bar -->
+  <rect x="8" y="266" width="484" height="26" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="30" y="282" font-size="8" fill="#28c840" font-family="monospace">● Model Live</text>
+  <text x="115" y="282" font-size="8" fill="#8b949e" font-family="monospace">Last retrain: 2 days ago</text>
+  <text x="290" y="282" font-size="8" fill="#e07b39" font-family="monospace">⚠ 2 SKUs critical</text>
+  <text x="400" y="282" font-size="8" fill="#8b949e" font-family="monospace">Next run: 06:00</text>
+</svg>

@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
-import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaEnvelope, FaWhatsapp, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 export default function Contact() {
   const { register, handleSubmit, reset, formState: { errors, isSubmitting }, watch } = useForm();
@@ -36,7 +36,7 @@ export default function Contact() {
       </Head>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-dark to-primary/20 py-20 px-4 pt-32">
+      <section className="bg-gradient-to-br from-ink via-charcoal to-dark py-20 px-4 pt-32">
         <motion.div
           className="max-w-4xl mx-auto text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -44,7 +44,7 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-5xl font-bold text-white mb-6">Get In Touch</h1>
-          <p className="text-xl text-gray-300">Have a project in mind? Let's talk!</p>
+          <p className="text-xl text-sand/80">Have a project in mind? Let's talk!</p>
         </motion.div>
       </section>
 
@@ -67,20 +67,20 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-1">Email</h3>
-                    <a href="mailto:hello@example.com" className="text-gray-400 hover:text-secondary transition">
-                      hello@example.com
+                    <a href="mailto:rw3761840@gmail.com" className="text-sand/60 hover:text-secondary transition">
+                      rw3761840@gmail.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
                   <div className="text-secondary text-2xl mt-1">
-                    <FaPhone />
+                    <FaWhatsapp />
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-1">Phone</h3>
-                    <a href="tel:+1234567890" className="text-gray-400 hover:text-secondary transition">
-                      +1 (234) 567-890
+                    <a href="tel:+923247144941" className="text-sand/60 hover:text-secondary transition">
+                      +92 324 7144941
                     </a>
                   </div>
                 </div>
@@ -91,8 +91,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-1">LinkedIn</h3>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-secondary transition">
-                      Visit My Profile
+                    <a href="https://www.linkedin.com/in/waseem-ahmed-376" target="_blank" rel="noopener noreferrer" className="text-sand/60 hover:text-secondary transition">
+                      Waseem Ahmed · LinkedIn
                     </a>
                   </div>
                 </div>
@@ -103,8 +103,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-1">GitHub</h3>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-secondary transition">
-                      View My Code
+                    <a href="https://github.com/WaseemAhmed376" target="_blank" rel="noopener noreferrer" className="text-sand/60 hover:text-secondary transition">
+                      @WaseemAhmed376
                     </a>
                   </div>
                 </div>
@@ -113,7 +113,7 @@ export default function Contact() {
               {/* Response Time */}
               <div className="mt-12 bg-primary/10 p-6 rounded-lg">
                 <h3 className="text-white font-semibold mb-2">Response Time</h3>
-                <p className="text-gray-300">
+                <p className="text-sand/80">
                   I typically respond to inquiries within 24 hours. For urgent matters, please call or mention it in your message.
                 </p>
               </div>
@@ -175,7 +175,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-secondary hover:bg-blue-400 text-dark font-bold py-3 rounded-lg transition disabled:opacity-50"
+                  className="w-full bg-secondary hover:bg-secondary/90 text-dark font-bold py-3 rounded-lg transition disabled:opacity-50"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>

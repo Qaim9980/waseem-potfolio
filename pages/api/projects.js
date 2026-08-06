@@ -4,59 +4,58 @@
 export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
-      // Sample projects data - replace with actual data source
       const projects = [
         {
           id: 1,
-          title: 'E-Commerce Platform',
-          description: 'Full-stack e-commerce solution with payment integration and inventory management.',
-          image: 'https://via.placeholder.com/500x300?text=E-Commerce',
-          tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+          title: 'AI Customer Support Chatbot',
+          description: 'An LLM-powered chatbot that handles customer queries, escalates complex issues, and logs conversations — built with LangChain, OpenAI GPT-4, and FastAPI.',
+          image: '/proj-ai-chatbot.svg',
+          tags: ['Python', 'LangChain', 'OpenAI', 'FastAPI', 'RAG'],
           github: 'https://github.com',
           live: 'https://example.com',
         },
         {
           id: 2,
-          title: 'Project Management App',
-          description: 'Collaborative project management tool with real-time updates and team features.',
-          image: 'https://via.placeholder.com/500x300?text=Project+Manager',
-          tags: ['Next.js', 'Firebase', 'Tailwind CSS'],
+          title: 'n8n E-commerce Automation',
+          description: 'End-to-end order management automation — new orders trigger inventory updates, customer emails, Slack alerts, and Google Sheets logging via n8n workflows.',
+          image: '/proj-n8n-ecommerce.svg',
+          tags: ['n8n', 'Shopify', 'Google Sheets', 'Webhooks', 'Email'],
           github: 'https://github.com',
           live: 'https://example.com',
         },
         {
           id: 3,
-          title: 'n8n Automation Suite',
-          description: 'Advanced automation workflows for business process optimization and data sync.',
-          image: 'https://via.placeholder.com/500x300?text=n8n+Automation',
-          tags: ['n8n', 'Google Sheets', 'Slack', 'Webhooks'],
+          title: 'RAG Document Q&A System',
+          description: 'Upload PDFs and ask questions — uses ChromaDB for vector storage, OpenAI embeddings, and a Streamlit UI to provide accurate answers from your documents.',
+          image: '/proj-rag-system.svg',
+          tags: ['Python', 'LangChain', 'ChromaDB', 'OpenAI', 'Streamlit'],
           github: 'https://github.com',
           live: 'https://example.com',
         },
         {
           id: 4,
-          title: 'Analytics Dashboard',
-          description: 'Real-time data visualization dashboard with interactive charts and reports.',
-          image: 'https://via.placeholder.com/500x300?text=Analytics',
-          tags: ['React', 'Chart.js', 'PostgreSQL', 'Express'],
+          title: 'E-commerce Price Monitor',
+          description: 'Scrapes product prices across Amazon, eBay, and Daraz on a schedule, detects price drops, and sends instant alerts via email and Telegram using n8n.',
+          image: '/proj-price-monitor.svg',
+          tags: ['Python', 'Scrapy', 'n8n', 'PostgreSQL', 'Telegram Bot'],
           github: 'https://github.com',
           live: 'https://example.com',
         },
         {
           id: 5,
-          title: 'Mobile App',
-          description: 'Cross-platform mobile application for task management and productivity.',
-          image: 'https://via.placeholder.com/500x300?text=Mobile+App',
-          tags: ['React Native', 'Firebase', 'Redux'],
+          title: 'n8n Lead Generation Pipeline',
+          description: 'Automated B2B lead pipeline — scrapes LinkedIn data, enriches with AI, scores leads, pushes to CRM, and triggers personalized follow-up email sequences.',
+          image: '/proj-lead-gen.svg',
+          tags: ['n8n', 'OpenAI', 'HubSpot', 'Gmail', 'Web Scraping'],
           github: 'https://github.com',
           live: 'https://example.com',
         },
         {
           id: 6,
-          title: 'API Integration Service',
-          description: 'Microservice for integrating multiple third-party APIs with caching and monitoring.',
-          image: 'https://via.placeholder.com/500x300?text=API+Service',
-          tags: ['Node.js', 'Express', 'Redis', 'Docker'],
+          title: 'AI Inventory Management',
+          description: 'ML model that predicts stock depletion and auto-triggers reorders via WooCommerce API. Includes a Streamlit dashboard for sales analytics and forecasting.',
+          image: '/proj-inventory-ai.svg',
+          tags: ['Python', 'Scikit-learn', 'WooCommerce', 'Streamlit', 'n8n'],
           github: 'https://github.com',
           live: 'https://example.com',
         },
@@ -68,7 +67,6 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'Failed to fetch projects' });
     }
   } else if (req.method === 'POST') {
-    // Add new project (for n8n webhook integration)
     const { title, description, image, tags, github, live } = req.body;
 
     if (!title || !description) {
@@ -76,9 +74,6 @@ export default async function handler(req, res) {
     }
 
     try {
-      // Save project to database/Google Sheets/Airtable
-      // console.log('New project added:', { title, description, image, tags, github, live });
-
       return res.status(201).json({ success: true, message: 'Project added successfully' });
     } catch (error) {
       console.error('Error adding project:', error);

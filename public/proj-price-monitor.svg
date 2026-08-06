@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="500" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="chartLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ca9f6a"/>
+      <stop offset="1" stop-color="#e07b39"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="300" fill="url(#bg)" rx="12"/>
+  <rect width="500" height="40" fill="#1c2128" rx="12"/>
+  <rect y="28" width="500" height="12" fill="#1c2128"/>
+  <circle cx="20" cy="20" r="6" fill="#ff5f57"/>
+  <circle cx="38" cy="20" r="6" fill="#febc2e"/>
+  <circle cx="56" cy="20" r="6" fill="#28c840"/>
+  <text x="250" y="25" text-anchor="middle" font-size="12" fill="#8b949e" font-family="monospace">Price Monitor · 500 Products · Live</text>
+
+  <!-- Left: product list -->
+  <rect x="8" y="48" width="160" height="210" rx="8" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="88" y="64" text-anchor="middle" font-size="9" fill="#8b949e" font-family="monospace">TRACKED PRODUCTS</text>
+
+  <!-- Product rows -->
+  <rect x="14" y="70" width="148" height="28" rx="4" fill="#0d1117" stroke="#e07b39" stroke-width="0.8"/>
+  <text x="22" y="82" font-size="8" fill="#f0f6fc" font-family="monospace">iPhone 15 Case</text>
+  <text x="22" y="92" font-size="7" fill="#e07b39" font-family="monospace">▼ $12.99 (-18%)</text>
+  <circle cx="152" cy="84" r="4" fill="#e07b39"/>
+
+  <rect x="14" y="102" width="148" height="28" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="0.5"/>
+  <text x="22" y="114" font-size="8" fill="#f0f6fc" font-family="monospace">USB-C Hub 7-in-1</text>
+  <text x="22" y="124" font-size="7" fill="#8b949e" font-family="monospace">$34.99 (stable)</text>
+  <circle cx="152" cy="116" r="4" fill="#8b949e"/>
+
+  <rect x="14" y="134" width="148" height="28" rx="4" fill="#0d1117" stroke="#28c840" stroke-width="0.8"/>
+  <text x="22" y="146" font-size="8" fill="#f0f6fc" font-family="monospace">Mechanical Keyboard</text>
+  <text x="22" y="156" font-size="7" fill="#28c840" font-family="monospace">▲ $89.00 (+5%)</text>
+  <circle cx="152" cy="148" r="4" fill="#28c840"/>
+
+  <rect x="14" y="166" width="148" height="28" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="0.5"/>
+  <text x="22" y="178" font-size="8" fill="#f0f6fc" font-family="monospace">Wireless Earbuds</text>
+  <text x="22" y="188" font-size="7" fill="#8b949e" font-family="monospace">$45.00 (stable)</text>
+
+  <rect x="14" y="198" width="148" height="28" rx="4" fill="#0d1117" stroke="#e07b39" stroke-width="0.8"/>
+  <text x="22" y="210" font-size="8" fill="#f0f6fc" font-family="monospace">Laptop Stand</text>
+  <text x="22" y="220" font-size="7" fill="#e07b39" font-family="monospace">▼ $19.50 (-22%)</text>
+  <circle cx="152" cy="212" r="4" fill="#e07b39"/>
+
+  <!-- Right: chart -->
+  <rect x="176" y="48" width="316" height="150" rx="8" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="334" y="64" text-anchor="middle" font-size="9" fill="#8b949e" font-family="monospace">iPhone 15 Case · 30-day Price History</text>
+
+  <!-- Chart axes -->
+  <line x1="196" y1="70" x2="196" y2="175" stroke="#30363d" stroke-width="1"/>
+  <line x1="196" y1="175" x2="480" y2="175" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Y axis labels -->
+  <text x="192" y="80" text-anchor="end" font-size="7" fill="#8b949e" font-family="monospace">$18</text>
+  <text x="192" y="107" text-anchor="end" font-size="7" fill="#8b949e" font-family="monospace">$16</text>
+  <text x="192" y="134" text-anchor="end" font-size="7" fill="#8b949e" font-family="monospace">$14</text>
+  <text x="192" y="161" text-anchor="end" font-size="7" fill="#8b949e" font-family="monospace">$12</text>
+
+  <!-- X labels -->
+  <text x="210" y="183" font-size="7" fill="#8b949e" font-family="monospace">Jul 7</text>
+  <text x="270" y="183" font-size="7" fill="#8b949e" font-family="monospace">Jul 14</text>
+  <text x="330" y="183" font-size="7" fill="#8b949e" font-family="monospace">Jul 21</text>
+  <text x="390" y="183" font-size="7" fill="#8b949e" font-family="monospace">Jul 28</text>
+  <text x="445" y="183" font-size="7" fill="#8b949e" font-family="monospace">Aug 5</text>
+
+  <!-- Amazon price line -->
+  <polyline points="210,90 240,92 270,88 300,95 330,100 360,98 390,105 420,140 450,162 475,162"
+    fill="none" stroke="#ca9f6a" stroke-width="2"/>
+  <!-- eBay price line -->
+  <polyline points="210,100 240,102 270,99 300,105 330,110 360,108 390,115 420,118 450,120 475,120"
+    fill="none" stroke="#7b8a5a" stroke-width="2" stroke-dasharray="4,2"/>
+
+  <!-- Drop alert marker -->
+  <line x1="420" y1="70" x2="420" y2="175" stroke="#e07b39" stroke-width="1" stroke-dasharray="3,2"/>
+  <circle cx="420" cy="140" r="5" fill="#e07b39"/>
+  <rect x="390" y="73" width="60" height="14" rx="3" fill="#e07b39" opacity="0.2" stroke="#e07b39" stroke-width="0.8"/>
+  <text x="420" y="83" text-anchor="middle" font-size="7" fill="#e07b39" font-family="monospace">ALERT!</text>
+
+  <!-- Legend -->
+  <line x1="300" y1="193" x2="320" y2="193" stroke="#ca9f6a" stroke-width="2"/>
+  <text x="325" y="197" font-size="7" fill="#ca9f6a" font-family="monospace">Amazon</text>
+  <line x1="375" y1="193" x2="395" y2="193" stroke="#7b8a5a" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="400" y="197" font-size="7" fill="#7b8a5a" font-family="monospace">eBay</text>
+
+  <!-- Alert notification panel -->
+  <rect x="176" y="208" width="316" height="50" rx="8" fill="#1c2128" stroke="#e07b39" stroke-width="1"/>
+  <text x="190" y="224" font-size="9" fill="#e07b39" font-family="monospace">🔔 Price Drop Alert Triggered</text>
+  <text x="190" y="238" font-size="8" fill="#f0f6fc" font-family="monospace">iPhone 15 Case dropped 18% on Amazon → $12.99</text>
+  <text x="190" y="250" font-size="7" fill="#8b949e" font-family="monospace">Telegram ✓  |  Email ✓  |  Logged to PostgreSQL ✓  |  08:42 AM</text>
+
+  <!-- Bottom stats -->
+  <rect x="8" y="266" width="484" height="26" rx="6" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="30" y="282" font-size="8" fill="#8b949e" font-family="monospace">Scraped: 6h ago</text>
+  <text x="145" y="282" font-size="8" fill="#28c840" font-family="monospace">● 500 products live</text>
+  <text x="290" y="282" font-size="8" fill="#8b949e" font-family="monospace">Alerts sent today: 7</text>
+  <text x="400" y="282" font-size="8" fill="#8b949e" font-family="monospace">Proxies: 12 active</text>
+</svg>
