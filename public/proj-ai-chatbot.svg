@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="500" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="msgGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e07b39"/>
+      <stop offset="1" stop-color="#ca9f6a"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="500" height="300" fill="url(#bg)" rx="12"/>
+  <!-- Top bar -->
+  <rect width="500" height="40" fill="#1c2128" rx="12"/>
+  <rect y="28" width="500" height="12" fill="#1c2128"/>
+  <circle cx="20" cy="20" r="6" fill="#ff5f57"/>
+  <circle cx="38" cy="20" r="6" fill="#febc2e"/>
+  <circle cx="56" cy="20" r="6" fill="#28c840"/>
+  <text x="250" y="25" text-anchor="middle" font-size="12" fill="#8b949e" font-family="monospace">AI Support Agent · GPT-4 + RAG</text>
+
+  <!-- Left panel: RAG pipeline -->
+  <rect x="12" y="52" width="150" height="236" fill="#161b22" rx="8" stroke="#30363d" stroke-width="1"/>
+  <text x="87" y="70" text-anchor="middle" font-size="10" fill="#8b949e" font-family="monospace">PIPELINE</text>
+
+  <!-- Step nodes -->
+  <!-- Node 1 -->
+  <rect x="22" y="78" width="130" height="32" rx="6" fill="#1f2937" stroke="#e07b39" stroke-width="1"/>
+  <circle cx="36" cy="94" r="7" fill="#e07b39" opacity="0.8"/>
+  <text x="46" y="91" font-size="9" fill="#e07b39" font-family="monospace">User Query</text>
+  <text x="46" y="102" font-size="8" fill="#8b949e" font-family="monospace">Input received</text>
+  <!-- Arrow -->
+  <line x1="87" y1="110" x2="87" y2="120" stroke="#30363d" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <polygon points="83,119 87,126 91,119" fill="#30363d"/>
+  <!-- Node 2 -->
+  <rect x="22" y="128" width="130" height="32" rx="6" fill="#1f2937" stroke="#ca9f6a" stroke-width="1"/>
+  <circle cx="36" cy="144" r="7" fill="#ca9f6a" opacity="0.8"/>
+  <text x="46" y="141" font-size="9" fill="#ca9f6a" font-family="monospace">Embed Query</text>
+  <text x="46" y="152" font-size="8" fill="#8b949e" font-family="monospace">text-embedding-3</text>
+  <!-- Arrow -->
+  <line x1="87" y1="160" x2="87" y2="170" stroke="#30363d" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <polygon points="83,169 87,176 91,169" fill="#30363d"/>
+  <!-- Node 3 -->
+  <rect x="22" y="178" width="130" height="32" rx="6" fill="#1f2937" stroke="#7b8a5a" stroke-width="1"/>
+  <circle cx="36" cy="194" r="7" fill="#7b8a5a" opacity="0.8"/>
+  <text x="46" y="191" font-size="9" fill="#7b8a5a" font-family="monospace">ChromaDB Search</text>
+  <text x="46" y="202" font-size="8" fill="#8b949e" font-family="monospace">top-k=5 chunks</text>
+  <!-- Arrow -->
+  <line x1="87" y1="210" x2="87" y2="220" stroke="#30363d" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <polygon points="83,219 87,226 91,219" fill="#30363d"/>
+  <!-- Node 4 -->
+  <rect x="22" y="228" width="130" height="32" rx="6" fill="#1f2937" stroke="#e07b39" stroke-width="1"/>
+  <circle cx="36" cy="244" r="7" fill="#e07b39" opacity="0.8"/>
+  <text x="46" y="241" font-size="9" fill="#e07b39" font-family="monospace">GPT-4 Generate</text>
+  <text x="46" y="252" font-size="8" fill="#8b949e" font-family="monospace">grounded answer</text>
+
+  <!-- Right panel: Chat UI -->
+  <rect x="172" y="52" width="316" height="236" fill="#0d1117" rx="8" stroke="#30363d" stroke-width="1"/>
+  <rect x="172" y="52" width="316" height="28" fill="#1c2128" rx="8"/>
+  <rect x="172" y="68" width="316" height="12" fill="#1c2128"/>
+  <circle cx="188" cy="66" r="5" fill="#28c840"/>
+  <text x="200" y="70" font-size="10" fill="#f0f6fc" font-family="monospace">support-bot · online</text>
+
+  <!-- User message -->
+  <rect x="280" y="92" width="195" height="38" rx="8" fill="#e07b39" opacity="0.15" stroke="#e07b39" stroke-width="1"/>
+  <text x="292" y="107" font-size="9" fill="#e07b39" font-family="monospace">How do I reset my password?</text>
+  <text x="452" y="122" text-anchor="end" font-size="8" fill="#8b949e" font-family="monospace">You · 14:32</text>
+
+  <!-- Bot message -->
+  <rect x="182" y="140" width="220" height="60" rx="8" fill="#1f2937" stroke="#30363d" stroke-width="1"/>
+  <circle cx="195" cy="152" r="7" fill="#ca9f6a" opacity="0.8"/>
+  <text x="210" y="154" font-size="9" fill="#f0f6fc" font-family="monospace">Sure! To reset your password:</text>
+  <text x="195" y="168" font-size="8" fill="#8b949e" font-family="monospace">1. Go to Settings → Security</text>
+  <text x="195" y="180" font-size="8" fill="#8b949e" font-family="monospace">2. Click "Reset Password" [doc:p.12]</text>
+  <text x="195" y="193" font-size="8" fill="#8b949e" font-family="monospace">Bot · 14:32 · confidence: 0.94</text>
+
+  <!-- Confidence badge -->
+  <rect x="370" y="143" width="110" height="18" rx="4" fill="#28c840" opacity="0.1" stroke="#28c840" stroke-width="1"/>
+  <text x="425" y="155" text-anchor="middle" font-size="8" fill="#28c840" font-family="monospace">✓ RAG verified</text>
+
+  <!-- User message 2 -->
+  <rect x="295" y="212" width="180" height="28" rx="8" fill="#e07b39" opacity="0.15" stroke="#e07b39" stroke-width="1"/>
+  <text x="307" y="225" font-size="9" fill="#e07b39" font-family="monospace">Can I change my email?</text>
+  <text x="452" y="233" text-anchor="end" font-size="8" fill="#8b949e" font-family="monospace">You · 14:33</text>
+
+  <!-- Typing indicator -->
+  <rect x="182" y="252" width="80" height="22" rx="8" fill="#1f2937" stroke="#30363d" stroke-width="1"/>
+  <circle cx="205" cy="263" r="3" fill="#8b949e" opacity="0.8"/>
+  <circle cx="217" cy="263" r="3" fill="#8b949e" opacity="0.5"/>
+  <circle cx="229" cy="263" r="3" fill="#8b949e" opacity="0.3"/>
+
+  <!-- Input bar -->
+  <rect x="182" y="276" width="276" height="1" fill="#30363d"/>
+</svg>

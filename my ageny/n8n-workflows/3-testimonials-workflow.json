@@ -1,0 +1,133 @@
+{
+  "name": "Update Testimonials Section",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "form",
+        "operation": "trigger",
+        "formId": "YOUR_GOOGLE_FORM_ID"
+      },
+      "id": "e5f6g7h8-i9j0-k1l2-m3n4-o5p6q7r8s9t0",
+      "name": "New testimonial submitted via Google Form",
+      "type": "n8n-nodes-base.googleForms",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "testimonial-trigger"
+    },
+    {
+      "parameters": {
+        "resource": "sheet",
+        "operation": "append",
+        "documentId": "YOUR_GOOGLE_SHEET_ID",
+        "sheetName": "Testimonials",
+        "columns": {
+          "parameters": [
+            {
+              "name": "name",
+              "value": "={{ $node['New testimonial submitted via Google Form'].json.name }}"
+            },
+            {
+              "name": "company",
+              "value": "={{ $node['New testimonial submitted via Google Form'].json.company }}"
+            },
+            {
+              "name": "role",
+              "value": "={{ $node['New testimonial submitted via Google Form'].json.role }}"
+            },
+            {
+              "name": "testimonial",
+              "value": "={{ $node['New testimonial submitted via Google Form'].json.testimonial }}"
+            },
+            {
+              "name": "rating",
+              "value": "={{ $node['New testimonial submitted via Google Form'].json.rating }}"
+            },
+            {
+              "name": "timestamp",
+              "value": "={{ new Date().toISOString() }}"
+            }
+          ]
+        }
+      },
+      "id": "f6g7h8i9-j0k1-l2m3-n4o5-p6q7r8s9t0u1",
+      "name": "Add testimonial to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "url": "http://localhost:3000/api/testimonials",
+        "method": "POST",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "name",
+              "value": "={{ $node['New testimonial submitted via Google Form'].json.name }}"
+            },
+            {
+              "name": "company",
+              "value": "={{ $node['New testimonial submitted via Google Form'].json.company }}"
+            },
+            {
+              "name": "role",
+              "value": "={{ $node['New testimonial submitted via Google Form'].json.role }}"
+            },
+            {
+              "name": "testimonial",
+              "value": "={{ $node['New testimonial submitted via Google Form'].json.testimonial }}"
+            },
+            {
+              "name": "rating",
+              "value": "={{ $node['New testimonial submitted via Google Form'].json.rating }}"
+            }
+          ]
+        }
+      },
+      "id": "g7h8i9j0-k1l2-m3n4-o5p6-q7r8s9t0u1v2",
+      "name": "Update testimonials on website",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [750, 300]
+    },
+    {
+      "parameters": {
+        "channel": "#testimonials",
+        "text": "New testimonial from {{ $node['New testimonial submitted via Google Form'].json.name }} ({{ $node['New testimonial submitted via Google Form'].json.company }})\\n\\n\\\"{{ $node['New testimonial submitted via Google Form'].json.testimonial }}\\\"\\n\\nRating: {{ $node['New testimonial submitted via Google Form'].json.rating }} stars"
+      },
+      "id": "h8i9j0k1-l2m3-n4o5-p6q7-r8s9t0u1v2w3",
+      "name": "Send Slack notification",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 1,
+      "position": [1000, 300]
+    }
+  ],
+  "connections": {
+    "New testimonial submitted via Google Form": {
+      "main": [
+        [
+          {
+            "node": "Add testimonial to Google Sheets",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Update testimonials on website",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send Slack notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "saveManualExecutions": true,
+    "callerPolicy": "owner"
+  }
+}

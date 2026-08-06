@@ -1,0 +1,46 @@
+# AI/ML Engineer Agent - Conda Requirements
+# Simplified version for faster installation
+
+# Core LLM Framework (latest compatible versions)
+langchain
+langchain-core
+langchain-ollama
+langchain-community
+
+# Web Framework
+flask==3.0.3
+flask-cors==4.0.0
+
+# Code Execution
+jupyter-client
+ipykernel
+
+# Web Search
+duckduckgo-search
+requests
+
+# Data Science Stack
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+
+# Advanced ML
+xgboost
+lightgbm
+shap
+imbalanced-learn
+
+# Deep Learning
+tensorflow
+torch
+
+# Utilities
+python-dotenv
+pydantic
+tqdm
+
+# Jupyter extras
+notebook
+ipywidgets

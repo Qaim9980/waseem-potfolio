@@ -1,0 +1,113 @@
+{
+  "name": "Add New Project to Portfolio",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "b4f8c8e8-8f8e-4e4e-8f8e-4e4e8f8e4e4e",
+      "name": "When a new project is added to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "trigger"
+    },
+    {
+      "parameters": {
+        "resource": "sheet",
+        "operation": "read",
+        "documentId": "YOUR_GOOGLE_SHEET_ID",
+        "sheetName": "Projects"
+      },
+      "id": "c5g9d9f9-9g9f-5f5f-9g9f-5f5f9g9f5f5f",
+      "name": "Fetch project data from Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "url": "http://localhost:3000/api/projects",
+        "method": "POST",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "title",
+              "value": "={{ $node['Fetch project data from Google Sheets'].json.title }}"
+            },
+            {
+              "name": "description",
+              "value": "={{ $node['Fetch project data from Google Sheets'].json.description }}"
+            },
+            {
+              "name": "image",
+              "value": "={{ $node['Fetch project data from Google Sheets'].json.image }}"
+            },
+            {
+              "name": "tags",
+              "value": "={{ $node['Fetch project data from Google Sheets'].json.tags }}"
+            },
+            {
+              "name": "github",
+              "value": "={{ $node['Fetch project data from Google Sheets'].json.github }}"
+            }
+          ]
+        }
+      },
+      "id": "d6h0e0g0-0h0g-6g6g-0h0g-6g6g0h0g6g6g",
+      "name": "Update portfolio website",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [750, 300]
+    },
+    {
+      "parameters": {
+        "channel": "#general",
+        "text": "New project added: {{ $node['Fetch project data from Google Sheets'].json.title }}"
+      },
+      "id": "e7i1f1h1-1i1h-7h7h-1i1h-7h7h1i1h7h7h",
+      "name": "Send Slack notification",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 1,
+      "position": [1000, 300]
+    }
+  ],
+  "connections": {
+    "When a new project is added to Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Fetch project data from Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch project data from Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Update portfolio website",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update portfolio website": {
+      "main": [
+        [
+          {
+            "node": "Send Slack notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "saveManualExecutions": true,
+    "callerPolicy": "owner"
+  }
+}

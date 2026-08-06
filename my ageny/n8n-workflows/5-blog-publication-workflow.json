@@ -1,0 +1,140 @@
+{
+  "name": "Publish New Blog Post",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "sheet",
+        "operation": "read",
+        "documentId": "YOUR_GOOGLE_SHEET_ID",
+        "sheetName": "Blog Posts",
+        "options": {
+          "limit": 1,
+          "sort": "timestamp",
+          "sortDirection": "descending"
+        }
+      },
+      "id": "m3n4o5p6-q7r8-s9t0-u1v2-w3x4y5z6a7b8",
+      "name": "Check for new blog posts",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "blog-trigger"
+    },
+    {
+      "parameters": {
+        "url": "http://localhost:3000/api/blog",
+        "method": "POST",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "title",
+              "value": "={{ $node['Check for new blog posts'].json.title }}"
+            },
+            {
+              "name": "excerpt",
+              "value": "={{ $node['Check for new blog posts'].json.excerpt }}"
+            },
+            {
+              "name": "content",
+              "value": "={{ $node['Check for new blog posts'].json.content }}"
+            },
+            {
+              "name": "author",
+              "value": "={{ $node['Check for new blog posts'].json.author }}"
+            },
+            {
+              "name": "date",
+              "value": "={{ $node['Check for new blog posts'].json.date }}"
+            },
+            {
+              "name": "image",
+              "value": "={{ $node['Check for new blog posts'].json.image }}"
+            },
+            {
+              "name": "tags",
+              "value": "={{ $node['Check for new blog posts'].json.tags }}"
+            }
+          ]
+        }
+      },
+      "id": "n4o5p6q7-r8s9-t0u1-v2w3-x4y5z6a7b8c9",
+      "name": "Publish to website",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "channel": "#blog",
+        "text": "📝 New blog post published!\\n\\nTitle: *{{ $node['Check for new blog posts'].json.title }}*\\nAuthor: {{ $node['Check for new blog posts'].json.author }}\\n\\nRead it here: https://your-portfolio.com/blog/{{ $node['Check for new blog posts'].json.id }}"
+      },
+      "id": "o5p6q7r8-s9t0-u1v2-w3x4-y5z6a7b8c9d0",
+      "name": "Announce on Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 1,
+      "position": [750, 300]
+    },
+    {
+      "parameters": {
+        "toEmail": "subscribers@example.com",
+        "subject": "New Blog Post: {{ $node['Check for new blog posts'].json.title }}",
+        "htmlBody": "Hi there,\\n\\nA new blog post has been published!\\n\\n{{ $node['Check for new blog posts'].json.excerpt }}\\n\\nRead the full post: https://your-portfolio.com/blog/{{ $node['Check for new blog posts'].json.id }}\\n\\nBest regards,\\nYour Portfolio"
+      },
+      "id": "p6q7r8s9-t0u1-v2w3-x4y5-z6a7b8c9d0e1",
+      "name": "Send email to subscribers",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 1,
+      "position": [750, 500]
+    },
+    {
+      "parameters": {
+        "channel": "#reminders",
+        "text": "Blog post published successfully on{{ new Date().toLocaleString() }}"
+      },
+      "id": "q7r8s9t0-u1v2-w3x4-y5z6-a7b8c9d0e1f2",
+      "name": "Log completion",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 1,
+      "position": [1000, 300]
+    }
+  ],
+  "connections": {
+    "Check for new blog posts": {
+      "main": [
+        [
+          {
+            "node": "Publish to website",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Publish to website": {
+      "main": [
+        [
+          {
+            "node": "Announce on Slack",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send email to subscribers",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Log completion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "saveManualExecutions": true,
+    "callerPolicy": "owner"
+  }
+}

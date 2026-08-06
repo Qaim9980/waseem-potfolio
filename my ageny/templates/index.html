@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI/ML Engineer Agent 🤖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 900px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .status-bar {
+            background: #f7f9fc;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e1e8ed;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #10b981;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .main-content {
+            padding: 30px;
+        }
+
+        .mode-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .mode-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e1e8ed;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .mode-btn:hover {
+            border-color: #667eea;
+            background: #f7f9fc;
+        }
+
+        .mode-btn.active {
+            border-color: #667eea;
+            background: #667eea;
+            color: white;
+        }
+
+        .mode-description {
+            background: #fff9e6;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .mode-description.professional {
+            background: #f0f9ff;
+            border-left-color: #3b82f6;
+        }
+
+        .chat-box {
+            background: #f7f9fc;
+            border-radius: 15px;
+            padding: 20px;
+            min-height: 400px;
+            max-height: 500px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            line-height: 1.6;
+        }
+
+        .user-message {
+            background: #667eea;
+            color: white;
+            margin-left: 20%;
+        }
+
+        .agent-message {
+            background: white;
+            border: 1px solid #e1e8ed;
+            margin-right: 20%;
+        }
+
+        .agent-message pre {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+
+        .thinking {
+            color: #667eea;
+            font-style: italic;
+            animation: fadeInOut 1.5s infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+        }
+
+        textarea {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .examples {
+            margin-top: 20px;
+            padding: 20px;
+            background: #fff9e6;
+            border-left: 4px solid #fbbf24;
+            border-radius: 10px;
+        }
+
+        .examples h3 {
+            margin-bottom: 10px;
+            color: #92400e;
+        }
+
+        .examples ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .examples li {
+            padding: 8px 0;
+            color: #78350f;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .examples li:hover {
+            color: #667eea;
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f7f9fc;
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI/ML Engineer Agent</h1>
+            <p>Autonomous agent powered by ReAct Pattern - Train models, analyze data, solve problems</p>
+        </div>
+
+        <div class="status-bar">
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span id="status-text">Online</span>
+            </div>
+            <span id="model-info">Model: Loading...</span>
+        </div>
+
+        <div class="main-content">
+            <div class="mode-selector">
+                <button class="mode-btn active" data-mode="standard">⚡ Standard Mode</button>
+                <button class="mode-btn" data-mode="professional">🎓 Professional Mode</button>
+            </div>
+
+            <div class="mode-description" id="modeDescription">
+                <p>⚡ <strong>Standard Mode:</strong> Quick ML tasks with ReAct pattern (Thought → Action → Observation → Learning)</p>
+            </div>
+
+            <div class="chat-box" id="chatBox">
+                <div class="message agent-message">
+                    👋 Hello! I'm your AI/ML Engineer Agent with <strong>two modes</strong>:
+                    <br><br>
+                    <strong>⚡ Standard Mode</strong> (Active):
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>✓ Quick ML tasks</li>
+                        <li>✓ Train models with ReAct pattern</li>
+                        <li>✓ Faster execution</li>
+                    </ul>
+                    <br>
+                    <strong>🎓 Professional Mode</strong>:
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>✓ Senior AI Architect workflow</li>
+                        <li>✓ 4-Phase process (EDA → Preprocessing → Modeling → Reporting)</li>
+                        <li>✓ Hyperparameter tuning & cross-validation</li>
+                        <li>✓ Publication-quality visualizations</li>
+                        <li>✓ Comprehensive evaluation metrics</li>
+                    </ul>
+                    <br>
+                    <strong>Switch modes using the buttons above!</strong>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <textarea 
+                    id="userInput" 
+                    placeholder="Ask me to train a model, analyze data, or solve a problem..."
+                    rows="2"
+                ></textarea>
+                <button id="sendBtn" onclick="sendMessage()">Send</button>
+            </div>
+
+            <div class="examples">
+                <h3>💡 Example Queries:</h3>
+                <div id="standardExamples">
+                    <strong>Standard Mode:</strong>
+                    <ul>
+                        <li onclick="setExample(this)">Load iris dataset and train a decision tree classifier</li>
+                        <li onclick="setExample(this)">Create random data and train linear regression with plot</li>
+                        <li onclick="setExample(this)">Search for the latest papers on transformer architectures</li>
+                    </ul>
+                </div>
+                <div id="professionalExamples" style="display:none; margin-top:10px;">
+                    <strong>Professional Mode (4-Phase):</strong>
+                    <ul>
+                        <li onclick="setExample(this)">Build a complete customer churn prediction system with EDA, tuning, and evaluation</li>
+                        <li onclick="setExample(this)">Train a classification model with hyperparameter optimization and cross-validation</li>
+                        <li onclick="setExample(this)">Create a regression pipeline with feature importance and learning curves</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Built with LangChain + Ollama | ReAct Pattern | 2026
+        </div>
+    </div>
+
+    <script>
+        let currentMode = 'standard';
+        let isProcessing = false;
+
+        // Load status
+        fetch('/api/status')
+            .then(r => r.json())
+            .then(data => {
+                document.getElementById('model-info').textContent = `Model: ${data.model}`;
+            })
+            .catch(() => {
+                document.getElementById('status-text').textContent = 'Offline';
+            });
+
+        // Mode switching
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentMode = btn.dataset.mode;
+                
+                // Update description
+                const desc = document.getElementById('modeDescription');
+                if (currentMode === 'professional') {
+                    desc.innerHTML = '<p>🎓 <strong>Professional Mode:</strong> Senior AI Architect with 4-phase workflow (EDA → Preprocessing → Modeling → Reporting). Includes hyperparameter tuning, cross-validation, and publication-quality results.</p>';
+                    desc.classList.add('professional');
+                    document.getElementById('standardExamples').style.display = 'none';
+                    document.getElementById('professionalExamples').style.display = 'block';
+                } else {
+                    desc.innerHTML = '<p>⚡ <strong>Standard Mode:</strong> Quick ML tasks with ReAct pattern (Thought → Action → Observation → Learning)</p>';
+                    desc.classList.remove('professional');
+                    document.getElementById('standardExamples').style.display = 'block';
+                    document.getElementById('professionalExamples').style.display = 'none';
+                }
+            });
+        });
+
+        // Send message
+        async function sendMessage() {
+            const input = document.getElementById('userInput');
+            const query = input.value.trim();
+            
+            if (!query || isProcessing) return;
+            
+            isProcessing = true;
+            const sendBtn = document.getElementById('sendBtn');
+            sendBtn.disabled = true;
+            sendBtn.textContent = 'Processing...';
+            
+            // Add user message
+            addMessage(query, 'user');
+            input.value = '';
+            
+            // Show thinking indicator
+            const thinkingMsg = currentMode === 'professional' 
+                ? '🎓 Senior AI Architect analyzing... Following 4-phase workflow...'
+                : '🤔 Thinking and executing...';
+            const thinkingId = addMessage(thinkingMsg, 'agent', true);
+            
+            try {
+                const response = await fetch('/api/query', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        query: query,
+                        professional: currentMode === 'professional'
+                    })
+                });
+                
+                const data = await response.json();
+                
+                // Remove thinking indicator
+                document.getElementById(thinkingId).remove();
+                
+                if (data.success) {
+                    const modeLabel = data.mode === 'professional' ? '🎓 Professional' : '⚡ Standard';
+                    addMessage(`[${modeLabel} Mode]\n\n${data.result}`, 'agent');
+                } else {
+                    addMessage(`❌ Error: ${data.error}`, 'agent');
+                }
+                
+            } catch (error) {
+                document.getElementById(thinkingId).remove();
+                addMessage(`❌ Connection error: ${error.message}`, 'agent');
+            }
+            
+            isProcessing = false;
+            sendBtn.disabled = false;
+            sendBtn.textContent = 'Send';
+        }
+
+        // Add message to chat
+        function addMessage(text, sender, isTemp = false) {
+            const chatBox = document.getElementById('chatBox');
+            const msgDiv = document.createElement('div');
+            const msgId = 'msg-' + Date.now();
+            msgDiv.id = msgId;
+            msgDiv.className = `message ${sender}-message`;
+            
+            if (isTemp) {
+                msgDiv.classList.add('thinking');
+            }
+            
+            // Format code blocks
+            if (text.includes('```')) {
+                const parts = text.split('```');
+                let formatted = parts[0];
+                for (let i = 1; i < parts.length; i += 2) {
+                    formatted += '<pre>' + escapeHtml(parts[i]) + '</pre>';
+                    if (i + 1 < parts.length) {
+                        formatted += parts[i + 1];
+                    }
+                }
+                msgDiv.innerHTML = formatted;
+            } else {
+                msgDiv.innerHTML = text.replace(/\n/g, '<br>');
+            }
+            
+            chatBox.appendChild(msgDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+            
+            return msgId;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Set example query
+        function setExample(element) {
+            document.getElementById('userInput').value = element.textContent;
+        }
+
+        // Enter to send
+        document.getElementById('userInput').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

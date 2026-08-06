@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
+  <rect width="500" height="300" fill="#0d1117" rx="12"/>
+  <rect width="500" height="40" fill="#1c2128" rx="12"/>
+  <rect y="28" width="500" height="12" fill="#1c2128"/>
+  <circle cx="20" cy="20" r="6" fill="#ff5f57"/><circle cx="38" cy="20" r="6" fill="#febc2e"/><circle cx="56" cy="20" r="6" fill="#28c840"/>
+  <text x="250" y="25" text-anchor="middle" font-size="11" fill="#8b949e" font-family="monospace">Qdrant · Vector Store · Tenant Namespacing</text>
+  <!-- Left: tenant list -->
+  <rect x="8" y="48" width="140" height="224" rx="8" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="78" y="64" text-anchor="middle" font-size="9" fill="#8b949e" font-family="monospace">TENANTS</text>
+  <rect x="16" y="70" width="124" height="28" rx="5" fill="#e07b39" opacity="0.15" stroke="#e07b39" stroke-width="0.8"/>
+  <text x="78" y="84" text-anchor="middle" font-size="8" fill="#e07b39" font-family="monospace">tenant-acme</text>
+  <text x="78" y="94" text-anchor="middle" font-size="7" fill="#8b949e" font-family="monospace">4,200 vectors · active</text>
+  <rect x="16" y="102" width="124" height="28" rx="5" fill="#161b22" stroke="#30363d" stroke-width="0.5"/>
+  <text x="78" y="116" text-anchor="middle" font-size="8" fill="#f0f6fc" font-family="monospace">tenant-globex</text>
+  <text x="78" y="126" text-anchor="middle" font-size="7" fill="#8b949e" font-family="monospace">1,850 vectors · active</text>
+  <rect x="16" y="134" width="124" height="28" rx="5" fill="#161b22" stroke="#30363d" stroke-width="0.5"/>
+  <text x="78" y="148" text-anchor="middle" font-size="8" fill="#f0f6fc" font-family="monospace">tenant-initech</text>
+  <text x="78" y="158" text-anchor="middle" font-size="7" fill="#8b949e" font-family="monospace">920 vectors · active</text>
+  <rect x="16" y="166" width="124" height="28" rx="5" fill="#161b22" stroke="#30363d" stroke-width="0.5"/>
+  <text x="78" y="180" text-anchor="middle" font-size="8" fill="#f0f6fc" font-family="monospace">tenant-stark</text>
+  <text x="78" y="190" text-anchor="middle" font-size="7" fill="#8b949e" font-family="monospace">3,100 vectors · active</text>
+  <text x="78" y="232" text-anchor="middle" font-size="8" fill="#8b949e" font-family="monospace">Total: 10,070 vectors</text>
+  <text x="78" y="246" text-anchor="middle" font-size="8" fill="#28c840" font-family="monospace">● No cross-tenant leak</text>
+  <!-- Right: search result -->
+  <rect x="158" y="48" width="334" height="224" rx="8" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="325" y="64" text-anchor="middle" font-size="9" fill="#8b949e" font-family="monospace">Live Query · tenant-acme</text>
+  <rect x="166" y="70" width="318" height="24" rx="5" fill="#0d1117" stroke="#ca9f6a" stroke-width="0.8"/>
+  <text x="178" y="85" font-size="9" fill="#ca9f6a" font-family="monospace">Q: What is the refund policy for enterprise plans?</text>
+  <!-- Results -->
+  <rect x="166" y="100" width="318" height="38" rx="5" fill="#0d1117" stroke="#28c840" stroke-width="0.8"/>
+  <text x="178" y="113" font-size="7" fill="#28c840" font-family="monospace">chunk #c-341 · score: 0.97 · enterprise-policy.pdf · p.4</text>
+  <text x="178" y="126" font-size="8" fill="#f0f6fc" font-family="monospace">"Enterprise refunds are processed within 5 business days..."</text>
+  <rect x="166" y="142" width="318" height="38" rx="5" fill="#0d1117" stroke="#7b8a5a" stroke-width="0.5"/>
+  <text x="178" y="155" font-size="7" fill="#7b8a5a" font-family="monospace">chunk #c-112 · score: 0.88 · billing-guide.pdf · p.12</text>
+  <text x="178" y="168" font-size="8" fill="#8b949e" font-family="monospace">"Refund requests must include the invoice number..."</text>
+  <rect x="166" y="184" width="318" height="38" rx="5" fill="#0d1117" stroke="#30363d" stroke-width="0.5"/>
+  <text x="178" y="197" font-size="7" fill="#8b949e" font-family="monospace">chunk #c-567 · score: 0.74 · faq.pdf · p.2</text>
+  <text x="178" y="210" font-size="8" fill="#8b949e" font-family="monospace">"For refund status, contact support@acme.com..."</text>
+  <!-- Latency badge -->
+  <rect x="166" y="230" width="100" height="24" rx="5" fill="#28c840" opacity="0.1" stroke="#28c840" stroke-width="0.8"/>
+  <text x="216" y="245" text-anchor="middle" font-size="8" fill="#28c840" font-family="monospace">⚡ 118ms P95</text>
+  <rect x="278" y="230" width="100" height="24" rx="5" fill="#ca9f6a" opacity="0.1" stroke="#ca9f6a" stroke-width="0.8"/>
+  <text x="328" y="245" text-anchor="middle" font-size="8" fill="#ca9f6a" font-family="monospace">RRF + reranked</text>
+  <rect x="390" y="230" width="94" height="24" rx="5" fill="#e07b39" opacity="0.1" stroke="#e07b39" stroke-width="0.8"/>
+  <text x="437" y="245" text-anchor="middle" font-size="8" fill="#e07b39" font-family="monospace">faith: 0.96</text>
+</svg>

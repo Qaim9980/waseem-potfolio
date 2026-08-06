@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
+  <rect width="500" height="300" fill="#0d1117" rx="12"/>
+  <rect width="500" height="40" fill="#1c2128" rx="12"/>
+  <rect y="28" width="500" height="12" fill="#1c2128"/>
+  <circle cx="20" cy="20" r="6" fill="#ff5f57"/><circle cx="38" cy="20" r="6" fill="#febc2e"/><circle cx="56" cy="20" r="6" fill="#28c840"/>
+  <text x="250" y="25" text-anchor="middle" font-size="11" fill="#8b949e" font-family="monospace">Grafana · Per-Tenant Metrics Dashboard</text>
+  <!-- Hallucination trend -->
+  <rect x="8" y="48" width="235" height="110" rx="8" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="120" y="64" text-anchor="middle" font-size="9" fill="#8b949e" font-family="monospace">Hallucination Rate (%)</text>
+  <line x1="30" y1="70" x2="30" y2="140" stroke="#30363d" stroke-width="1"/>
+  <line x1="30" y1="140" x2="232" y2="140" stroke="#30363d" stroke-width="1"/>
+  <text x="26" y="80" text-anchor="end" font-size="7" fill="#8b949e" font-family="monospace">24</text>
+  <text x="26" y="100" text-anchor="end" font-size="7" fill="#8b949e" font-family="monospace">16</text>
+  <text x="26" y="120" text-anchor="end" font-size="7" fill="#8b949e" font-family="monospace">8</text>
+  <polyline points="35,78 65,80 95,85 125,100 155,110 185,128 215,134" fill="none" stroke="#ff5f57" stroke-width="2"/>
+  <text x="40" y="148" font-size="7" fill="#8b949e" font-family="monospace">before</text>
+  <line x1="110" y1="70" x2="110" y2="140" stroke="#febc2e" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="112" y="78" font-size="7" fill="#febc2e" font-family="monospace">deploy</text>
+  <polyline points="115,128 145,120 175,105 205,90 225,85" fill="none" stroke="#28c840" stroke-width="2"/>
+  <text x="175" y="148" font-size="7" fill="#28c840" font-family="monospace">after ↓63%</text>
+  <!-- Latency dist -->
+  <rect x="253" y="48" width="239" height="110" rx="8" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="372" y="64" text-anchor="middle" font-size="9" fill="#8b949e" font-family="monospace">Latency Distribution (ms)</text>
+  <rect x="270" y="90" width="20" height="40" rx="2" fill="#ca9f6a" opacity="0.7"/>
+  <rect x="295" y="75" width="20" height="55" rx="2" fill="#ca9f6a" opacity="0.8"/>
+  <rect x="320" y="85" width="20" height="45" rx="2" fill="#ca9f6a" opacity="0.7"/>
+  <rect x="345" y="100" width="20" height="30" rx="2" fill="#ca9f6a" opacity="0.5"/>
+  <rect x="370" y="115" width="20" height="15" rx="2" fill="#e07b39" opacity="0.6"/>
+  <rect x="395" y="120" width="20" height="10" rx="2" fill="#ff5f57" opacity="0.4"/>
+  <text x="280" y="148" font-size="7" fill="#8b949e" font-family="monospace">50</text><text x="305" y="148" font-size="7" fill="#8b949e" font-family="monospace">80</text><text x="330" y="148" font-size="7" fill="#8b949e" font-family="monospace">110</text><text x="355" y="148" font-size="7" fill="#8b949e" font-family="monospace">140</text><text x="380" y="148" font-size="7" fill="#8b949e" font-family="monospace">170</text>
+  <line x1="373" y1="70" x2="373" y2="135" stroke="#28c840" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="375" y="78" font-size="7" fill="#28c840" font-family="monospace">P95=120ms</text>
+  <!-- NPS + ingestion stats -->
+  <rect x="8" y="168" width="235" height="106" rx="8" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="120" y="184" text-anchor="middle" font-size="9" fill="#8b949e" font-family="monospace">NPS by Tenant</text>
+  <rect x="20" y="192" width="210" height="14" rx="3" fill="#28c840" opacity="0.2"/>
+  <rect x="20" y="192" width="175" height="14" rx="3" fill="#28c840" opacity="0.6"/>
+  <text x="22" y="202" font-size="7" fill="#f0f6fc" font-family="monospace">tenant-acme</text><text x="222" y="202" text-anchor="end" font-size="7" fill="#28c840" font-family="monospace">4.3★</text>
+  <rect x="20" y="210" width="210" height="14" rx="3" fill="#28c840" opacity="0.2"/>
+  <rect x="20" y="210" width="160" height="14" rx="3" fill="#28c840" opacity="0.5"/>
+  <text x="22" y="220" font-size="7" fill="#f0f6fc" font-family="monospace">tenant-globex</text><text x="222" y="220" text-anchor="end" font-size="7" fill="#28c840" font-family="monospace">4.1★</text>
+  <rect x="20" y="228" width="210" height="14" rx="3" fill="#ca9f6a" opacity="0.2"/>
+  <rect x="20" y="228" width="140" height="14" rx="3" fill="#ca9f6a" opacity="0.5"/>
+  <text x="22" y="238" font-size="7" fill="#f0f6fc" font-family="monospace">tenant-initech</text><text x="222" y="238" text-anchor="end" font-size="7" fill="#ca9f6a" font-family="monospace">3.9★</text>
+  <text x="120" y="260" text-anchor="middle" font-size="8" fill="#28c840" font-family="monospace">Avg NPS: 4.1★ (+0.8 vs before)</text>
+  <!-- Ingestion stats -->
+  <rect x="253" y="168" width="239" height="106" rx="8" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="372" y="184" text-anchor="middle" font-size="9" fill="#8b949e" font-family="monospace">Ray Ingestion Pipeline</text>
+  <text x="265" y="202" font-size="8" fill="#ca9f6a" font-family="monospace">Docs today:</text><text x="390" y="202" font-size="8" fill="#f0f6fc" font-family="monospace">50,000</text>
+  <text x="265" y="218" font-size="8" fill="#ca9f6a" font-family="monospace">Avg chunk time:</text><text x="390" y="218" font-size="8" fill="#f0f6fc" font-family="monospace">1.2ms</text>
+  <text x="265" y="234" font-size="8" fill="#ca9f6a" font-family="monospace">Workers:</text><text x="390" y="234" font-size="8" fill="#f0f6fc" font-family="monospace">8 parallel</text>
+  <text x="265" y="250" font-size="8" fill="#ca9f6a" font-family="monospace">Failures:</text><text x="390" y="250" font-size="8" fill="#28c840" font-family="monospace">0</text>
+  <text x="265" y="266" font-size="8" fill="#ca9f6a" font-family="monospace">Circuit breaker:</text><text x="390" y="266" font-size="8" fill="#28c840" font-family="monospace">closed ✓</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
+  <rect width="500" height="300" fill="#0d1117" rx="12"/>
+  <rect width="500" height="40" fill="#1c2128" rx="12"/>
+  <rect y="28" width="500" height="12" fill="#1c2128"/>
+  <circle cx="20" cy="20" r="6" fill="#ff5f57"/><circle cx="38" cy="20" r="6" fill="#febc2e"/><circle cx="56" cy="20" r="6" fill="#28c840"/>
+  <text x="250" y="25" text-anchor="middle" font-size="11" fill="#8b949e" font-family="monospace">Analytics · price-monitor · Stats Overview</text>
+  <rect x="12" y="52" width="230" height="220" rx="8" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="127" y="70" text-anchor="middle" font-size="10" fill="#8b949e" font-family="monospace">Performance Metrics</text>
+  <rect x="24" y="78" width="206" height="36" rx="6" fill="#0d1117" stroke="#28c840" stroke-width="0.8"/>
+  <text x="127" y="94" text-anchor="middle" font-size="9" fill="#28c840" font-family="monospace">Success Rate</text>
+  <text x="127" y="108" text-anchor="middle" font-size="14" fill="#f0f6fc" font-family="monospace" font-weight="bold">99.8%</text>
+  <rect x="24" y="122" width="206" height="36" rx="6" fill="#0d1117" stroke="#ca9f6a" stroke-width="0.8"/>
+  <text x="127" y="138" text-anchor="middle" font-size="9" fill="#ca9f6a" font-family="monospace">Total Runs</text>
+  <text x="127" y="152" text-anchor="middle" font-size="14" fill="#f0f6fc" font-family="monospace" font-weight="bold">1,247</text>
+  <rect x="24" y="166" width="206" height="36" rx="6" fill="#0d1117" stroke="#e07b39" stroke-width="0.8"/>
+  <text x="127" y="182" text-anchor="middle" font-size="9" fill="#e07b39" font-family="monospace">Avg Duration</text>
+  <text x="127" y="196" text-anchor="middle" font-size="14" fill="#f0f6fc" font-family="monospace" font-weight="bold">0.4s</text>
+  <rect x="24" y="210" width="206" height="36" rx="6" fill="#0d1117" stroke="#7b8a5a" stroke-width="0.8"/>
+  <text x="127" y="226" text-anchor="middle" font-size="9" fill="#7b8a5a" font-family="monospace">Time Saved</text>
+  <text x="127" y="240" text-anchor="middle" font-size="14" fill="#f0f6fc" font-family="monospace" font-weight="bold">3h/day</text>
+  <rect x="254" y="52" width="234" height="220" rx="8" fill="#1c2128" stroke="#30363d" stroke-width="1"/>
+  <text x="371" y="70" text-anchor="middle" font-size="10" fill="#8b949e" font-family="monospace">7-Day Activity</text>
+  <line x1="270" y1="80" x2="270" y2="240" stroke="#30363d" stroke-width="1"/>
+  <line x1="270" y1="240" x2="476" y2="240" stroke="#30363d" stroke-width="1"/>
+  <polyline points="275,200 305,180 335,190 365,160 395,165 425,145 465,138" fill="none" stroke="#e07b39" stroke-width="2.5"/>
+  <circle cx="275" cy="200" r="3" fill="#e07b39"/>
+  <circle cx="305" cy="180" r="3" fill="#e07b39"/>
+  <circle cx="335" cy="190" r="3" fill="#e07b39"/>
+  <circle cx="365" cy="160" r="3" fill="#e07b39"/>
+  <circle cx="395" cy="165" r="3" fill="#e07b39"/>
+  <circle cx="425" cy="145" r="3" fill="#e07b39"/>
+  <circle cx="465" cy="138" r="3" fill="#e07b39"/>
+  <text x="275" y="254" font-size="7" fill="#8b949e" font-family="monospace">M</text><text x="305" y="254" font-size="7" fill="#8b949e" font-family="monospace">T</text><text x="335" y="254" font-size="7" fill="#8b949e" font-family="monospace">W</text><text x="365" y="254" font-size="7" fill="#8b949e" font-family="monospace">T</text><text x="395" y="254" font-size="7" fill="#8b949e" font-family="monospace">F</text><text x="425" y="254" font-size="7" fill="#8b949e" font-family="monospace">S</text><text x="455" y="254" font-size="7" fill="#8b949e" font-family="monospace">S</text>
+  <text x="371" y="275" text-anchor="middle" font-size="8" fill="#28c840" font-family="monospace">● Growing trend · all systems nominal</text>
+</svg>

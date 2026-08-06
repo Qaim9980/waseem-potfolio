@@ -1,0 +1,83 @@
+{
+  "name": "Resume/CV Update Reminder",
+  "nodes": [
+    {
+      "parameters": {
+        "trigger": "0 9 * * 1"
+      },
+      "id": "i9j0k1l2-m3n4-o5p6-q7r8-s9t0u1v2w3x4",
+      "name": "Scheduled reminder (Every Monday at 9 AM)",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "resume-reminder"
+    },
+    {
+      "parameters": {
+        "fromEmail": "noreply@example.com",
+        "toEmail": "{{ $env.ADMIN_EMAIL }}",
+        "subject": "Weekly Reminder: Check if your resume needs updating",
+        "htmlBody": "Hello,\\n\\nThis is your weekly reminder to check if your resume/CV needs updating on your portfolio website.\\n\\nConsider updating if:\\n- You've completed new projects\\n- You've acquired new skills\\n- Your experience summary has changed\\n\\nVisit: https://your-portfolio.com/admin/resume\\n\\nBest regards,\\nAutomation System"
+      },
+      "id": "j0k1l2m3-n4o5-p6q7-r8s9-t0u1v2w3x4y5",
+      "name": "Send email reminder",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 1,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://www.googleapis.com/calendar/v3/calendars/primary/events",
+        "method": "GET",
+        "authentication": "oAuth2",
+        "nodeCredentialType": "googleCalendarOAuth2Api",
+        "options": {
+          "property": "items"
+        }
+      },
+      "id": "k1l2m3n4-o5p6-q7r8-s9t0-u1v2w3x4y5z6",
+      "name": "Fetch upcoming events from Google Calendar",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [500, 500]
+    },
+    {
+      "parameters": {
+        "channel": "#reminders",
+        "text": "Resume update reminder sent at {{ new Date().toLocaleString() }}"
+      },
+      "id": "l2m3n4o5-p6q7-r8s9-t0u1-v2w3x4y5z6a7",
+      "name": "Send Slack confirmation",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 1,
+      "position": [750, 300]
+    }
+  ],
+  "connections": {
+    "Scheduled reminder (Every Monday at 9 AM)": {
+      "main": [
+        [
+          {
+            "node": "Send email reminder",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fetch upcoming events from Google Calendar",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send Slack confirmation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "saveManualExecutions": true,
+    "callerPolicy": "owner"
+  }
+}
