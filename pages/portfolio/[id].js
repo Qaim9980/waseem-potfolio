@@ -56,9 +56,8 @@ function ImageSlider({ images, title }) {
   );
 }
 
-export default function ProjectDetail() {
+export default function ProjectDetail({ id }) {
   const router = useRouter();
-  const { id } = router.query;
 
   // Extended project data with full details
   const projects = {
@@ -521,4 +520,26 @@ export default function ProjectDetail() {
       </section>
     </>
   );
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { id: '1' } },
+      { params: { id: '2' } },
+      { params: { id: '3' } },
+      { params: { id: '4' } },
+      { params: { id: '5' } },
+      { params: { id: '6' } },
+    ],
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  return {
+    props: {
+      id: params.id,
+    },
+  };
 }
